@@ -1,0 +1,7 @@
+$(function(){
+	$(".singup").click(function(){
+	
+	});
+});
+
+

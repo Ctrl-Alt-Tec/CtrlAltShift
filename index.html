@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>CtrlAltShift</title>
+</head>
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBVhjbMMPRS5jOgNweycGvn3p1QHotlD9o",
+    authDomain: "ctrlaltshift-cc2e6.firebaseapp.com",
+    databaseURL: "https://ctrlaltshift-cc2e6.firebaseio.com",
+    projectId: "ctrlaltshift-cc2e6",
+    storageBucket: "ctrlaltshift-cc2e6.appspot.com",
+    messagingSenderId: "1093973138518",
+    appId: "1:1093973138518:web:03a498f61d58b7860c2ff7",
+    measurementId: "G-1R2RGTWMQM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>    
+    <div class="main">
+        <div class="nav">
+            <div class="ctrlaltshift">
+                <h2>Ctrl Alt Shift</h2>
+            </div>
+            <div class="signup">
+                <input class="signup" type="button" value="Regístrate" onclick="window.location.replace('register.html')">
+            </div>      
+        </div>
+        <div class="about">
+                <h3 style="text-align: center;">What is Ctrl Alt Shift?</h3>
+                <p>This is a platform built to enlist for programming lessons at Ctrl Alt Tec!</p>
+                <p>This tool will allow us to know what programming languages you desire to master while helping us create efficient schedules.</p>
+                <p>Feel free to give us feedback and to suggest meetings!</p>
+        </div>
+        <div class="log">
+            <div class="user">
+                <input type="text" id="user" placeholder="Email">
+            </div>
+            <div class="password">
+                <input type="password" id="password" placeholder="Contraseña">
+            </div>
+            <div class="login">
+                <input type="submit" value="Ingresar" onclick="login()">
+            </div>
+            </div>
+        </div> 
+    </div>
+    <script type="text/javascript">
+        // Función que permite iniciar sesión con una cuenta previamente registrada.
+        function login (){
+            var userName = document.querySelector("#user").value;
+            var pssw = document.querySelector("#password").value;
+
+            firebase.auth().signInWithEmailAndPassword(userName, pssw).catch(function(error){
+                alert(error);
+            });
+            firebase.auth().onAuthStateChanged(function(user){
+                if(user!=null){
+                    window.location = "home.html";
+                }
+            })
+        }
+         
+    </script>
+</body>
+</html>
