@@ -1,0 +1,76 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+*{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Montserrat;
+    text-align: center;
+}
+h1{
+    color: #FFF;
+    padding-bottom: 10px;
+}
+h4{
+    color: #FFF;
+}
+.main {
+    background-image: linear-gradient(45deg, rgba(0,192,255,0.5), rgba(66,24,187,1));
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    vertical-align: middle;
+}
+.log{
+    padding: 10px;
+    display: inline-block;
+    width: 20%;
+    height: auto;
+    margin: 2vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.user {
+    width: auto;
+    height: auto;
+    padding-bottom: 10px;
+}
+.password {
+    width: auto;
+    height: auto;
+    padding-bottom: 10px;
+}
+.firstName {
+    width: auto;
+    height: auto;
+    padding-bottom: 10px;
+}
+.lastName {
+    width: auto;
+    height: auto;
+    padding-bottom: 10px;
+}
+.register {
+    width: auto;
+    height: auto;
+    padding-bottom: 10px;
+}
+input.regButton {
+    background-color: rgba(66,24,187,1);
+    border-color: rgba(0,0,0,0);
+    color: #FFF;
+    border-radius: 3px;
+}
+input.startButton {
+    background-color: rgba(66,24,187,1);
+    border-color: rgba(0,0,0,0);
+    color: #FFF;
+    border-radius: 3px;
+}
+input.reButton {
+    background-color: rgba(66,24,187,1);
+    border-color: rgba(0,0,0,0);
+    color: #FFF;
+    border-radius: 3px;
+}

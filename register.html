@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet" type = "text/css" href = "registerstyle.css">
+    <title>Shift Register</title>
+</head>
+<body>
+    <div class="main">
+        <div class="log">
+            <h1>Registro</h1>
+            <div class="user">
+                <input type="text" id="regUser" placeholder="Email">
+            </div>
+            <div class="password">
+                <input type="password" id="regPassword" placeholder="Contraseña">
+            </div>
+            <div class="firstName">
+                <input type="text" id="firstName" placeholder="Nombre">
+            </div> 
+            <div class="lastName">
+                <input type="text" id="lastName" placeholder="Apellido">
+            </div>
+            <div class="register">
+                <input class="regButton" type="submit" value="Registrarse" onclick="register()">
+            </div>
+            <div class="back" align="center">
+                <h4 align="center"> Al finalizar tu registro, da click en comenzar o en regresar para salir de la página.</h4> <br>
+                <input class="startButton" align="center" type="button" value="Comenzar" onclick="window.location.replace('home.html')"> <br> <br>
+                <input class="retButton" align="center" type="button" value="Regresar" onclick="salida()" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function salida(){
+                window.location.replace('index.html');
+                firebase.auth().signOut();
+            }
+        function register(){
+                var userName = document.querySelector("#regUser").value;
+                var pssw = document.querySelector("#regPassword").value;
+                firebase.auth().createUserWithEmailAndPassword(userName, pssw).then(function(user){
+                    var nombre = document.querySelector("#firstName").value;
+                    var apellido = document.querySelector("#lastName").value;
+
+
+                    firestore.collection("usuarios").doc(firebase.auth().currentUser.uid).set({
+                        userName: userName,
+                        Nombre: nombre,
+                        Apellido: apellido,
+
+        }).catch(function(error){ alert(error) });
+                }).then(function(){alert("Tu registro se ha completado con éxito");
+
+                }).catch(function(error){alert(error)});
+            }
+        </script>
+</body>
+</html>
